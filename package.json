@@ -1,0 +1,29 @@
+{
+  "name": "dec-15",
+  "version": "1.0.0",
+  "description": "vinay",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vinay-17/REACT-PRACTISE.git"
+  },
+  "keywords": [],
+  "author": "vinay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vinay-17/REACT-PRACTISE/issues"
+  },
+  "homepage": "https://github.com/Vinay-17/REACT-PRACTISE#readme",
+  "devDependencies": {
+    "parcel": "^2.16.1"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "browserslist": [
+    "last 6 versions"
+  ]
+}
