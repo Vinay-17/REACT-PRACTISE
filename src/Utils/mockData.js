@@ -1,39 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-    return (
-        <>
-        <div className="header">
-            <img className="h-logo" alt="LOGO" src="https://www.reshot.com/preview-assets/icons/8U7VWRGFMS/food-8U7VWRGFMS.svg"/>
-            <div className="nav-items">
-              <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Contact Us</li>
-                <li>Cart</li>
-              </ul>
-            </div>
-        </div>
-            </>
-    )
-}
-const RestaurantCard = ({ resObj }) =>{
-    return(
-        <>
-        <div className="card-container">
-            <img className="res-logo" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resObj.info.cloudinaryImageId} alt="card-logo"/>
-            <h3>{resObj.info.name}</h3>
-            <h4>{resObj.info.avgRating}</h4>
-            <h4>{resObj.info.cuisines.join(",")}</h4>
-            <h4>{resObj.info.costForTwo}</h4>
-            <h4>{resObj.info.sla.deliveryTime} mins</h4>
-
-        </div></>
-    )
-}
-const Body = () => {
- const resList= [
+const resList =  [
 {
 "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
 "info": {
@@ -677,29 +642,4 @@ const Body = () => {
 "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food_seo"
 }
 ]
-    return(
-        <>
-        <div className="body">
-            <p>Search bar</p>
-            <div className="res-container">
-           {resList.map((restaurent)=>{
-            return <RestaurantCard key={restaurent.info.id} resObj={restaurent} />
-           })}
-            
-            </div>
-        </div>
-        </>
-    )
-}
-const AppLayout = () => {
-    return(
-        <>
-        <div className="app">
-        <Header/>
-        <Body/>
-        </div>
-        </>
-    )
-}
-const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(<AppLayout/>)
+export default resList;
