@@ -38,6 +38,7 @@
 display: flex;
   flex-wrap: wrap;
   gap: 16px;
+  position : relative ;
 }
 .card-container{
   width: 260px;
@@ -134,8 +135,6 @@ display: flex;
   border-radius: 6px;
   transition: 0.2s;
 }
-
-/* Search Button Style */
 .search-btn {
   background-color: #6c63ff;
   color: white;
@@ -144,4 +143,27 @@ display: flex;
 .search-btn:hover {
   background-color: #554ee0;
 }
-
+label {
+  display: inline-block;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(135deg, #ff8c00, #e66a00);
+  border-radius: 6px;
+  border: 2px solid #b35400;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  position: relative;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  letter-spacing: 0.5px;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.user-class{
+  border: 2px solid black;
+}
