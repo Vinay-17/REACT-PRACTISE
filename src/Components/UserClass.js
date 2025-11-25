@@ -12,7 +12,6 @@ class UserClass extends React.Component{
  async  componentDidMount () {
     const  data = await fetch ("https://jsonplaceholder.typicode.com/users");
     const json = await data.json();
-    console.log(json)
     this.setState({
         users:(json)
     })

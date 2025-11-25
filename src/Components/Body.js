@@ -92,7 +92,7 @@ const Body = () => {
     setListOfRestaurants(restaurants);
     setSearchFilter(restaurants);
   };
-  console.log(listOfRestaurants)
+  // console.log(listOfRestaurants)
   const OnlineStatus = useOnlineStatus() 
   if (!OnlineStatus) {
     return <h2 style={{ textAlign: "center", color: "red" }}>

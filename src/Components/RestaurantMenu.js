@@ -51,25 +51,25 @@
 // };
 
 // export default RestaurantMenu;
-import React, { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
-import RES_MENU from '../Utils/menu';
 import { useParams } from 'react-router-dom';
 import useRestaurantMenu from '../Utils/useRestaurantMenu';
 import RestaurantCategory from './RestaurantCategory';
+import { useState } from 'react';
 
 const RestaurantMenu = () => {
+  const [ showIndex , setShowIndex ] = useState(null)
   const { resId } = useParams();
 const { resInfo , error } =useRestaurantMenu (resId);
 
-  if (!resInfo) return <Shimmer />;
+  if (resInfo == null) return <Shimmer />;
 
   const { name, cuisines, costForTwo } =
     resInfo?.data?.cards[2]?.card?.card?.info || {};
-
-  const menuCategories =
-    resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
-  console.log(resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.["@type"])
+    console.log(resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || []);
+    const menuCategory = resInfo?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
+    const itemCategory = menuCategory.filter(c => c.card?.card?.["@type"] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    // console.log(itemCategory)
   return (
     <div className='menu-container'>
     <div className="menu">
@@ -77,8 +77,18 @@ const { resInfo , error } =useRestaurantMenu (resId);
       <h3>{cuisines?.join(", ")} - ₹{costForTwo}</h3>
       </div>
       <div className='accordian-container'>
-       {} <RestaurantCategory />
-      </div>
+       { 
+  
+       itemCategory.map((category, index) => (
+    <RestaurantCategory 
+      key={index}
+      data={category?.card?.card}
+      showItems={index === showIndex? true : false}
+      setShowIndex = {() =>{setShowIndex(index)}}
+    />
+    ))
+    }
+       </div>
     </div>
   );
 };
